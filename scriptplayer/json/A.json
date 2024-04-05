@@ -1,0 +1,48 @@
+{
+    "file_name": "A",
+    "title": "Daniel code un transcripteur",
+    "id": "fa750fa6f1d911ee94f272933f3eb0a4",
+    "summary": [
+        "Dialogue de test"
+    ],
+    "nodes": [
+        {
+            "speaker": "Philippine",
+            "id": "fa751c30f1d911ee94f272933f3eb0a4",
+            "lines": [
+                "Alors, tu avances dans ton logiciel d'écriture de dialogue ?"
+            ],
+            "nextNodeId": "fa751cbcf1d911ee94f272933f3eb0a4"
+        },
+        {
+            "speaker": "Daniel",
+            "id": "fa751cbcf1d911ee94f272933f3eb0a4",
+            "lines": [
+                "Si on veut.",
+                "Pour l'instant, j'ai créé la coquille pour l'implémentation de la lecture ligne par ligne.",
+                "Chaque ligne de script est enregistrée comme l'affichage d'une ligne de script dans le jeu."
+            ],
+            "nextNodeId": "fa751d34f1d911ee94f272933f3eb0a4"
+        },
+        {
+            "speaker": "Philippine",
+            "id": "fa751d34f1d911ee94f272933f3eb0a4",
+            "lines": [
+                "Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entité ?",
+                "Ça me parait être une bonne idée.",
+                "Et tu gères les changements de personnage dans le dialogue ?"
+            ],
+            "nextNodeId": "fa751dacf1d911ee94f272933f3eb0a4"
+        },
+        {
+            "speaker": "Daniel",
+            "id": "fa751dacf1d911ee94f272933f3eb0a4",
+            "lines": [
+                "Oui, c'est l'idée, mais il me reste encore à l'implémenter.",
+                "Les changements de personnage se feront en passant d'un noeud à l'autre.",
+                "Par exemple, on est au quatrième noeud."
+            ],
+            "nextNodeId": null
+        }
+    ]
+}

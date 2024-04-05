@@ -1,0 +1,23 @@
+Daniel code un transcripteur
+----------------------------
+Dialogue de test
+----------------------------
+
+        Philippine
+    Alors, tu avances dans ton logiciel d'écriture de dialogue ?
+
+        Daniel 
+    Si on veut. 
+    Pour l'instant, j'ai créé la coquille pour l'implémentation de la lecture ligne par ligne.
+    Chaque ligne de script est enregistrée comme l'affichage d'une ligne de script dans le jeu.
+
+        Philippine
+    Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entité ?
+    Ça me parait être une bonne idée.
+    Et tu gères les changements de personnage dans le dialogue ?
+
+        Daniel
+    Oui, c'est l'idée, mais il me reste encore à l'implémenter.
+    Les changements de personnage se feront en passant d'un noeud à l'autre.
+    Par exemple, on est au quatrième noeud.
+
