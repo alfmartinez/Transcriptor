@@ -1,7 +1,8 @@
-from flask import Flask,request, render_template
+from flask import Flask,request, render_template, url_for, redirect
 from flask_bootstrap import Bootstrap5 as Bootstrap
 from dependency_injector.wiring import inject, Provide
 from scriptplayer.core.repository.script_repository import ScriptRepository
+from scriptplayer.core.services.script_player import ScriptPlayer
 from .container import Container
 
 container = Container()
@@ -36,6 +37,25 @@ def view_script(id: str, scriptRepository: ScriptRepository = Provide[Container.
         script = script
     )
 
+@app.route("/scripts/<id>/play")
+@inject
+def play_script(id: str, scriptRepository: ScriptRepository = Provide[Container.script_repository]):
+    script = scriptRepository.get_script(id)
+    nodeId = script.get_entrypoint()
+    print(url_for('play_node', id=id, nodeId=nodeId, line=0))
+    return redirect(url_for('play_node', id=id, nodeId=nodeId, line=0))
+
+@app.route("/scripts/<id>/play/node/<nodeId>/<line>")
+@inject
+def play_node(id: str, nodeId: str, line:int, scriptRepository: ScriptRepository = Provide[Container.script_repository], scriptPlayer: ScriptPlayer = Provide[Container.script_player]):
+    script = scriptRepository.get_script(id)    
+    scriptLine = scriptPlayer.getScriptLine(script, nodeId, int(line))
+    print(scriptLine)
+    return render_template(
+        "script_play.html",
+        scriptLine = scriptLine,
+        nextUrl = url_for('play_node', id=id, nodeId = scriptLine.next.nodeId, line=scriptLine.next.lineId)
+    )
 
 
 container.wire(packages=[__name__])

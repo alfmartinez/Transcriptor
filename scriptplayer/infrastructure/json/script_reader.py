@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from scriptplayer.core.domain.script import Script, ScriptId
+from scriptplayer.core.domain.script import Script, ScriptId, Node
 from dataclasses import make_dataclass
 import json
 import os
@@ -37,8 +37,13 @@ class JsonScriptReader(ScriptReader):
                     data = json.load(f)
                     uuid = UUID(data["id"])
                     self.paths[uuid]=entry.path
-                    scripts[data["id"]]=Script(**data)
-        print(scripts)
+                    script = Script(**data)
+                    scripts[data["id"]]=script
+                    script.nodes = list()
+                    for node in data["nodes"]:
+                        nodeObj = Node(**node)
+                        script.add_node(nodeObj)
+
         return scripts
 
     def read(self, id: ScriptId) -> Script:

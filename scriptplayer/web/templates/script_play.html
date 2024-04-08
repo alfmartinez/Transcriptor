@@ -4,9 +4,14 @@
 
 {% block content %}
 <div class="container">
-    {% for script in scripts %}
-        <p>{{ script.title }} &nbsp;<a href="/scripts/{{ script.id }}">View</a>&nbsp;<a href="/scripts/{{ script.id }}/play">Play</a></p>
-    {% endfor %}
+    <p class="script-line-speaker">{{ scriptLine.speaker }}</p>
+    <p class="script-line-text">{{ scriptLine.line }}</p>
+    {% if scriptLine.next.end: %}
+    <p>FIN</p>
+    {% else %}
+    <a href="{{ nextUrl }}"> Suivant </a>
+    {% endif %}
+    
 </div>
 
 {% endblock %}

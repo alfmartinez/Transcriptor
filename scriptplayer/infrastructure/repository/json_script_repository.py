@@ -25,7 +25,6 @@ class JsonScriptRepository(ScriptRepository):
     def add(self, script: Script):
         self.scripts[script.id] = script
         self.scriptIds.append(script.id)
-        print(script)
         self.writer.write(script)
         self.reader.update()
         self.reader.read(script.id)
