@@ -47,4 +47,4 @@ class JsonScriptRepository(ScriptRepository):
             return None
                         
     def get_scripts(self) -> List[Script]:
-        return [script for script in self.scripts]
+        return self.scripts.values()

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Script Player{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="script-header">
+        <h1>{{ script.title }}</h1>
+        <p class="script-summary">
+            {% for line in script.summary %}
+                {{line}}<br />
+            {% endfor %}
+        </p>
+    </div>
+    <div class="script-body">
+        {% for node in script.nodes %}
+            <p class="speaker">{{node.speaker}}</p>
+            <p class="node-lines">
+            {% for line in node.lines %}
+                {{line}}<br />            
+            {% endfor %}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="script-links">
+        <a href="/scripts/{{script.id}}/play">Play</a>&nbsp;
+        <a href="/scripts/list">Retour</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -22,11 +22,20 @@ def index():
 @inject
 def list_scripts(scriptRepository: ScriptRepository = Provide[Container.script_repository]):
     scripts = scriptRepository.get_scripts()
-    print(scripts)
     return render_template(
         "script_list.html",
         scripts = scripts
     )
+
+@app.route("/scripts/<id>")
+@inject
+def view_script(id: str, scriptRepository: ScriptRepository = Provide[Container.script_repository]):
+    script = scriptRepository.get_script(id)
+    return render_template(
+        "script_view.html",
+        script = script
+    )
+
 
 
 container.wire(packages=[__name__])
