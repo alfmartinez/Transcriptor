@@ -14,10 +14,11 @@ class JsonScriptRepository(ScriptRepository):
     reader: JsonScriptReader
     writer: JsonScriptWriter
 
-    def __init__(self, path: str):        
+    def __init__(self, path: str, load:bool = True):        
         self.writer = JsonScriptWriter(path)
         self.reader = JsonScriptReader(path)
-        self._init_data()
+        if load:
+            self._init_data()
     
     def _init_data(self):
         self.scripts = self.reader.read_all()

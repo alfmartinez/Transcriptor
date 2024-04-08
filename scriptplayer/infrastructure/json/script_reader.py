@@ -35,7 +35,7 @@ class JsonScriptReader(ScriptReader):
             if entry.is_file() and entry.name.endswith(".json"):
                 with open(entry.path, "r") as f:
                     data = json.load(f)
-                    uuid = UUID(data["id"])
+                    uuid = data["id"]
                     self.paths[uuid]=entry.path
                     script = Script(**data)
                     scripts[data["id"]]=script
@@ -50,7 +50,7 @@ class JsonScriptReader(ScriptReader):
         if id in self.paths:
             with open(self.paths[id], "r") as f:
                 data = json.load(f)
-                uuid = UUID(data["id"])
+                uuid = data["id"]
                 data["id"]=uuid
                 script = Script(**data)
                 print(script)
@@ -65,7 +65,7 @@ class JsonScriptReader(ScriptReader):
             if entry.is_file() and entry.name.endswith(".json"):
                 with open(entry.path, "r") as f:
                     data = json.load(f)
-                    uuid = UUID(data["id"])
+                    uuid = data["id"]
                     self.paths[uuid]=entry.path
         
                     

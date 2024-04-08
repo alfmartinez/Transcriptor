@@ -18,6 +18,12 @@
         <!-- Your page content -->
         {% block content %}{% endblock %}
 
+        {% block links %}
+            <div class="links">
+                <a href="{{ url_for('list_scripts') }}">Liste des scripts</a>
+            </div>
+        {% endblock %}
+
         {% block scripts %}
             <!-- Optional JavaScript -->
             {{ bootstrap.load_js() }}

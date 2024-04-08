@@ -21,3 +21,33 @@ Dialogue de test
     Les changements de personnage se feront en passant d'un noeud à l'autre.
     Par exemple, on est au quatrième noeud.
 
+questions:
+        Philippine
+    Est ce que tu peux m'en dire plus sur les fonctionnalités du player ?
+            * Les possibilités de choix -> choices
+            * L'utilisation des labels dans le script -> labels
+
+choices:
+        Philippine
+    Comment tu fais des choix dans les dialogues ?
+
+        Daniel
+    J'utilise une syntaxe particulière pour enregistrer des options de choix dans un noeud.
+    Quand la lecture du noeud se termine, les différentes options sont proposées pour la suite.
+    Et je peux reboucler vers un noeud précédent.
+            -> questions
+
+
+labels:
+        Philippine
+    Comment tu t'y retrouves dans les embranchements ?
+
+        Daniel
+    J'utilise des labels dans le script qui capturent l'identifiant du prochain noeud.
+    Ces labels sont ensuite utilisés pour mettre à jour les destinations des différents choix possibles.
+    Et ça marche aussi pour les sauts vers une autre partie du script.
+
+other:
+        Daniel
+    Et je peux rediriger l'exécution vers un point de sortie en commun. 
+    Ou laisser le script se poursuivre dans le noeud suivant.

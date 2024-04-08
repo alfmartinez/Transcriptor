@@ -3,18 +3,26 @@ from uuid import UUID, uuid1
 
 ScriptId = str
 
-@dataclass
-class Node:
-    speaker: str
-    id: str = ""
-    lines: list[str] = field(default_factory=list)
-    nextNodeId: str = ""
+def id_factory():
+    return uuid1().hex
 
-    def __init__(self, speaker: str, id: str=uuid1().hex, lines: list[str] = list(), nextNodeId: str=""):
-        self.speaker = speaker
-        self.id = id
-        self.lines = lines
-        self.nextNodeId = nextNodeId
+@dataclass
+class NextNodeOverride:
+    nextNodeId: str = ""
+    def setNextNodeId(self, id: str):
+        self.nextNodeId = id
+
+
+@dataclass
+class DialogueOption(NextNodeOverride):
+    text: str = ""
+
+@dataclass
+class Node(NextNodeOverride):
+    speaker: str = ""
+    id: str = field(default_factory=id_factory)
+    lines: list[str] = field(default_factory=list)
+    choices: list[DialogueOption] = field(default_factory=list)
 
     def add_line(self, line: str):
         self.lines.append(line)
@@ -26,17 +34,11 @@ class Node:
 
 @dataclass
 class Script:
-    file_name: str
+    file_name: str = ""
     title: str = ""
-    id: str = ""
+    id: str = field(default_factory=id_factory)
     summary: list[str] = field(default_factory=list)
-    nodes: list[Node] = field(default_factory=list)
-
-    def old__init__(self, file_name: str):
-        self.file_name = file_name
-        self.id = uuid1().hex
-        self.summary = list[str]()
-        self.nodes = list[Node]()
+    nodes: list[Node] = field(default_factory=list)   
 
     def add_summary(self, summary: str):
         self.summary.append(summary)

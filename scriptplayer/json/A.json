@@ -1,48 +1,120 @@
 {
     "file_name": "A",
     "title": "Daniel code un transcripteur",
-    "id": "fa750fa6f1d911ee94f272933f3eb0a4",
+    "id": "bb3440eaf5ae11eea43b72933f3eb0a4",
     "summary": [
         "Dialogue de test"
     ],
     "nodes": [
         {
+            "nextNodeId": "bb344d88f5ae11eea43b72933f3eb0a4",
             "speaker": "Philippine",
-            "id": "fa751c30f1d911ee94f272933f3eb0a4",
+            "id": "bb344b1cf5ae11eea43b72933f3eb0a4",
             "lines": [
                 "Alors, tu avances dans ton logiciel d'écriture de dialogue ?"
             ],
-            "nextNodeId": "fa751cbcf1d911ee94f272933f3eb0a4"
+            "choices": []
         },
         {
+            "nextNodeId": "bb344ef0f5ae11eea43b72933f3eb0a4",
             "speaker": "Daniel",
-            "id": "fa751cbcf1d911ee94f272933f3eb0a4",
+            "id": "bb344d88f5ae11eea43b72933f3eb0a4",
             "lines": [
                 "Si on veut.",
                 "Pour l'instant, j'ai créé la coquille pour l'implémentation de la lecture ligne par ligne.",
                 "Chaque ligne de script est enregistrée comme l'affichage d'une ligne de script dans le jeu."
             ],
-            "nextNodeId": "fa751d34f1d911ee94f272933f3eb0a4"
+            "choices": []
         },
         {
+            "nextNodeId": "bb344fb8f5ae11eea43b72933f3eb0a4",
             "speaker": "Philippine",
-            "id": "fa751d34f1d911ee94f272933f3eb0a4",
+            "id": "bb344ef0f5ae11eea43b72933f3eb0a4",
             "lines": [
                 "Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entité ?",
                 "Ça me parait être une bonne idée.",
                 "Et tu gères les changements de personnage dans le dialogue ?"
             ],
-            "nextNodeId": "fa751dacf1d911ee94f272933f3eb0a4"
+            "choices": []
         },
         {
+            "nextNodeId": "bb345080f5ae11eea43b72933f3eb0a4",
             "speaker": "Daniel",
-            "id": "fa751dacf1d911ee94f272933f3eb0a4",
+            "id": "bb344fb8f5ae11eea43b72933f3eb0a4",
             "lines": [
                 "Oui, c'est l'idée, mais il me reste encore à l'implémenter.",
                 "Les changements de personnage se feront en passant d'un noeud à l'autre.",
                 "Par exemple, on est au quatrième noeud."
             ],
-            "nextNodeId": null
+            "choices": []
+        },
+        {
+            "nextNodeId": "bb34524cf5ae11eea43b72933f3eb0a4",
+            "speaker": "Philippine",
+            "id": "bb345080f5ae11eea43b72933f3eb0a4",
+            "lines": [
+                "Est ce que tu peux m'en dire plus sur les fonctionnalités du player ?"
+            ],
+            "choices": [
+                {
+                    "nextNodeId": "bb34524cf5ae11eea43b72933f3eb0a4",
+                    "text": "Les possibilités de choix"
+                },
+                {
+                    "nextNodeId": "bb3453b4f5ae11eea43b72933f3eb0a4",
+                    "text": "L'utilisation des labels dans le script"
+                }
+            ]
+        },
+        {
+            "nextNodeId": "bb3452cef5ae11eea43b72933f3eb0a4",
+            "speaker": "Philippine",
+            "id": "bb34524cf5ae11eea43b72933f3eb0a4",
+            "lines": [
+                "Comment tu fais des choix dans les dialogues ?"
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "bb345080f5ae11eea43b72933f3eb0a4",
+            "speaker": "Daniel",
+            "id": "bb3452cef5ae11eea43b72933f3eb0a4",
+            "lines": [
+                "J'utilise une syntaxe particulière pour enregistrer des options de choix dans un noeud.",
+                "Quand la lecture du noeud se termine, les différentes options sont proposées pour la suite.",
+                "Et je peux reboucler vers un noeud précédent."
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "bb34544af5ae11eea43b72933f3eb0a4",
+            "speaker": "Philippine",
+            "id": "bb3453b4f5ae11eea43b72933f3eb0a4",
+            "lines": [
+                "Comment tu t'y retrouves dans les embranchements ?"
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "bb3454e0f5ae11eea43b72933f3eb0a4",
+            "speaker": "Daniel",
+            "id": "bb34544af5ae11eea43b72933f3eb0a4",
+            "lines": [
+                "J'utilise des labels dans le script qui capturent l'identifiant du prochain noeud.",
+                "Ces labels sont ensuite utilisés pour mettre à jour les destinations des différents choix possibles.",
+                "Et ça marche aussi pour les sauts vers une autre partie du script."
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "",
+            "speaker": "Daniel",
+            "id": "bb3454e0f5ae11eea43b72933f3eb0a4",
+            "lines": [
+                "Et je peux rediriger l'exécution vers un point de sortie en commun.",
+                "Ou laisser le script se poursuivre dans le noeud suivant."
+            ],
+            "choices": []
         }
     ]
 }

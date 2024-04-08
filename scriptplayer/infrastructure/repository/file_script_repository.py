@@ -33,4 +33,10 @@ class FileScriptRepository(ScriptRepository):
     def get_script(self, id: str) -> Script:
         path = self.paths[id]
         return FileScriptMapper.get_script(path)
+    
+    def get_scripts(self) -> List[Script]:
+        pass
+
+    def add(self, script: Script):
+        pass
 
