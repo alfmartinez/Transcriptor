@@ -19,11 +19,13 @@ class ScriptPlayer:
         node = script.get_node(nodeId=nodeId)
         if node:
             last, line = node.get_line(lineId)
+            choices = list()
             if last:                
+                choices = node.get_choices()
                 if node.nextNodeId:
                     next = ScriptIndex(node.nextNodeId, 0, False)
                 else:
                     next = ScriptIndex("", 0, True)
             else:
-                next = ScriptIndex(nodeId, lineId+1, False)
-            return ScriptLine(speaker=node.speaker, line=line, next=next)
+                next = ScriptIndex(nodeId, lineId+1, False)            
+            return choices, ScriptLine(speaker=node.speaker, line=line, next=next)

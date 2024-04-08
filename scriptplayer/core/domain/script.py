@@ -31,6 +31,8 @@ class Node(NextNodeOverride):
         last = idx == len(self.lines)-1
         return last, self.lines[idx]
 
+    def get_choices(self):
+        return self.choices
 
 @dataclass
 class Script:
