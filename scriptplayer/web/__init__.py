@@ -42,7 +42,6 @@ def view_script(id: str, scriptRepository: ScriptRepository = Provide[Container.
 def play_script(id: str, scriptRepository: ScriptRepository = Provide[Container.script_repository]):
     script = scriptRepository.get_script(id)
     nodeId = script.get_entrypoint()
-    print(url_for('play_node', id=id, nodeId=nodeId, line=0))
     return redirect(url_for('play_node', id=id, nodeId=nodeId, line=0))
 
 @app.route("/scripts/<id>/play/node/<nodeId>/<line>")
@@ -50,8 +49,6 @@ def play_script(id: str, scriptRepository: ScriptRepository = Provide[Container.
 def play_node(id: str, nodeId: str, line:int, scriptRepository: ScriptRepository = Provide[Container.script_repository], scriptPlayer: ScriptPlayer = Provide[Container.script_player]):
     script = scriptRepository.get_script(id)    
     choices, scriptLine = scriptPlayer.getScriptLine(script, nodeId, int(line))
-    print(scriptLine)
-    print(choices)
     return render_template(
         "script_play.html",
         scriptId=script.id,

@@ -1,98 +1,62 @@
+from dataclasses import dataclass, field
 from scriptplayer.core.domain.script import Script, Node, DialogueOption
 import os
 
-class MappingError(Exception):
-    pass
+from scriptplayer.infrastructure.mappers.abstract_classes import AbstractLineMapper, AbstractMapperRule
+from scriptplayer.infrastructure.mappers.exceptions import LineDoesntMatchAnyRuleError, MissingLabelError
+from scriptplayer.infrastructure.mappers.rules import CaptureLabelRule, ChoiceRule, EmptyLineRule, GotoCommandRule, NewLineRule, NewNodeRule, SummaryRule, TitleRule
 
-class CircularNodeLinkError(MappingError):
-    pass
-
-class MissingLabelError(MappingError):
-    pass
+rules_list = [
+    EmptyLineRule,
+    TitleRule,
+    SummaryRule,
+    GotoCommandRule,
+    ChoiceRule,
+    NewNodeRule,
+    NewLineRule,
+    CaptureLabelRule
+]
 
 class FileScriptMapper:
     @staticmethod
     def get_script(path: str) -> Script:
         filename = os.path.splitext(os.path.basename(path))[0]
         script = Script(filename)
+        mapper = LineMapper(script)
 
         with open(path) as file:
-            mapper = LineMapper()
             for line in file:    
-                mapper.process_line(script, line.rstrip())
+                mapper.process_line(line.rstrip())
             mapper.post_process_labels()
+        print(mapper)
         return script
     
-    
-class LineMapper:
-    summary_begin: bool = False
-    summary_done: bool = False
-    title_set: bool = False
+@dataclass    
+class LineMapper(AbstractLineMapper):
+    script: Script
     lastNode: Node = None
-    labels: dict = dict()
-    to_post_process: dict = dict()
+    labels: dict = field(default_factory=dict)
+    to_post_process: dict = field(default_factory=dict)
     capture_label: str = ""
+
+    rules: list[AbstractMapperRule] = field(default_factory=list)
+
+    def __init__(self, script: Script) -> None:
+        self.script = script
+        self.rules = list()
+        self.to_post_process = dict()
+        self.labels = dict()
+        for rule in rules_list:
+            self.rules.append(rule(self))
     
-    def process_line(self, script: Script, line: str):
-
-        if line.strip()=="":
-            return
+    def process_line(self, line: str):
         
-        if not self.title_set:
-            script.title = line.strip()
-            self.title_set = True
-            return
-
-        if not self.summary_begin:
-            if line.endswith("---"):
-                self.summary_begin = True
+        for rule in self.rules:
+            if rule.apply_rule(line):
+                #print(f'Matched "{line.strip()}" with {rule})')
                 return
-
-        if not self.summary_done :
-            if line.endswith('---'):
-                self.summary_done = True
-                return
-            else:
-                script.add_summary(line)
-                return
-            
-        lstripped_line = line.lstrip()
-        tab_number = (len(line)-len(lstripped_line)) / 4
-        if tab_number == 3:
-            print("found command "+lstripped_line)
-            if lstripped_line.startswith("->"):
-                print("found goto")
-                _, label = lstripped_line.split()
-                self.push_for_post_process(label, self.lastNode)
-                return
-            if lstripped_line.startswith("*"):
-                print("found choice")
-                text, label = lstripped_line[2:].split(" -> ")
-                option = DialogueOption(text=text)
-                self.push_for_post_process(label, option)
-                self.lastNode.choices.append(option)
-                return
-        if tab_number == 2:
-            ## New Node
-            speaker = line.strip()
-            node = Node(speaker=speaker)
-            print(node)
-            if self.capture_label:
-                self.labels[self.capture_label] = node.id
-                self.capture_label = ""
-            if self.lastNode:
-                self.lastNode.nextNodeId = node.id
-                if self.lastNode.id == node.id:
-                    raise CircularNodeLinkError()
-            script.add_node(node)
-            self.lastNode = node
-            return
-        if tab_number == 1:            
-            self.lastNode.add_line(line.strip())
-            return
-        if tab_number == 0:
-            self.capture_label, _ = line.split(':')
-            return
+        
+        raise LineDoesntMatchAnyRuleError(line)
 
     def push_for_post_process(self, label: str, item):
         if not label in self.to_post_process:

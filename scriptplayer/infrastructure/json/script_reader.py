@@ -53,7 +53,6 @@ class JsonScriptReader(ScriptReader):
                 uuid = data["id"]
                 data["id"]=uuid
                 script = Script(**data)
-                print(script)
                 return script
         
         return None

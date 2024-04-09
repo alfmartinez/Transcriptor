@@ -56,5 +56,4 @@ class Script:
      
     def get_entrypoint(self) -> str:
         node = self.nodes[0]
-        print(node)
         return self.nodes[0].id
