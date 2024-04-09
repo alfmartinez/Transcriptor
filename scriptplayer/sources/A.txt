@@ -51,3 +51,18 @@ other:
         Daniel
     Et je peux rediriger l'exécution vers un point de sortie en commun. 
     Ou laisser le script se poursuivre dans le noeud suivant.
+
+        Philippine
+    Et tu gères les dialogues conditionnels ?
+    Je veux dire, quand une personne dit un truc seulement si une condition est vraie ?
+
+conditions:    
+        Daniel 
+    Laisse moi réfléchir...
+    Il faudrait que je gère un état, peut-être avec des tags.   | ?! solution
+    Et que je puisse skipper les lignes que je n'affiche pas.   | ?! solution
+    OK. Je crois que cela fonctionne.                           | ?  solution
+
+        Philippine
+    OK. Tu me dis quand tu es prêt.                             | + solution
+            -> conditions

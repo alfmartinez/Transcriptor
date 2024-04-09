@@ -1,6 +1,8 @@
 from scriptplayer.core.domain.script import Script
 from dataclasses import dataclass
 
+from scriptplayer.core.domain.state import ScriptState
+
 @dataclass
 class ScriptIndex:
     nodeId: str
@@ -14,6 +16,11 @@ class ScriptLine:
     next: ScriptIndex
 
 class ScriptPlayer:
+
+    state: ScriptState
+
+    def __init__(self, state: ScriptState) -> None:
+        self.state = state
     
     def getScriptLine(self, script: Script, nodeId, lineId) -> ScriptLine:
         node = script.get_node(nodeId=nodeId)

@@ -32,7 +32,7 @@
                 {% if node.choices %}
                 <div class="node-choices">
                     {% for choice in node.choices %}
-                        <a class="btn btn-primary" href="#node-{{choice.nextNodeId}}">{{ choice.text }} : {{choice.label}}</a>
+                        <a class="btn btn-primary" href="#node-{{choice.nextNodeId}}">{{ choice.text }} : <span class="badge bg-secondary">{{choice.label}}</span></a>
                     {% endfor %}
                 </div>          
                 {% endif %}

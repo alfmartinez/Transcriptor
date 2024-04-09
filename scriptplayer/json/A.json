@@ -1,130 +1,288 @@
 {
     "file_name": "A",
     "title": "Daniel code un transcripteur",
-    "id": "8d5848c0f65711eea8b772933f3eb0a4",
+    "id": "08abf0b0f67d11eea21572933f3eb0a4",
     "summary": [
         "Dialogue de test"
     ],
     "nodes": [
         {
-            "nextNodeId": "8d58520cf65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abf7c2f67d11eea21572933f3eb0a4",
             "speaker": "Philippine",
             "label": "",
-            "id": "8d58514ef65711eea8b772933f3eb0a4",
+            "id": "08abf6bef67d11eea21572933f3eb0a4",
             "lines": [
-                "Alors, tu avances dans ton logiciel d'écriture de dialogue ?"
+                {
+                    "text": "Alors, tu avances dans ton logiciel d'écriture de dialogue ?",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d5852d4f65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abf952f67d11eea21572933f3eb0a4",
             "speaker": "Daniel",
             "label": "",
-            "id": "8d58520cf65711eea8b772933f3eb0a4",
+            "id": "08abf7c2f67d11eea21572933f3eb0a4",
             "lines": [
-                "Si on veut.",
-                "Pour l'instant, j'ai créé la coquille pour l'implémentation de la lecture ligne par ligne.",
-                "Chaque ligne de script est enregistrée comme l'affichage d'une ligne de script dans le jeu."
+                {
+                    "text": "Si on veut.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Pour l'instant, j'ai créé la coquille pour l'implémentation de la lecture ligne par ligne.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Chaque ligne de script est enregistrée comme l'affichage d'une ligne de script dans le jeu.",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d5853b0f65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abfaf6f67d11eea21572933f3eb0a4",
             "speaker": "Philippine",
             "label": "",
-            "id": "8d5852d4f65711eea8b772933f3eb0a4",
+            "id": "08abf952f67d11eea21572933f3eb0a4",
             "lines": [
-                "Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entité ?",
-                "Ça me parait être une bonne idée.",
-                "Et tu gères les changements de personnage dans le dialogue ?"
+                {
+                    "text": "Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entité ?",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Ça me parait être une bonne idée.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Et tu gères les changements de personnage dans le dialogue ?",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d585496f65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abfc54f67d11eea21572933f3eb0a4",
             "speaker": "Daniel",
             "label": "",
-            "id": "8d5853b0f65711eea8b772933f3eb0a4",
+            "id": "08abfaf6f67d11eea21572933f3eb0a4",
             "lines": [
-                "Oui, c'est l'idée, mais il me reste encore à l'implémenter.",
-                "Les changements de personnage se feront en passant d'un noeud à l'autre.",
-                "Par exemple, on est au quatrième noeud."
+                {
+                    "text": "Oui, c'est l'idée, mais il me reste encore à l'implémenter.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Les changements de personnage se feront en passant d'un noeud à l'autre.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Par exemple, on est au quatrième noeud.",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d5855f4f65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abfdc6f67d11eea21572933f3eb0a4",
             "speaker": "Philippine",
             "label": "questions",
-            "id": "8d585496f65711eea8b772933f3eb0a4",
+            "id": "08abfc54f67d11eea21572933f3eb0a4",
             "lines": [
-                "Est ce que tu peux m'en dire plus sur les fonctionnalités du player ?"
+                {
+                    "text": "Est ce que tu peux m'en dire plus sur les fonctionnalités du player ?",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": [
                 {
-                    "nextNodeId": "8d5855f4f65711eea8b772933f3eb0a4",
+                    "nextNodeId": "08abfdc6f67d11eea21572933f3eb0a4",
                     "text": "Les possibilités de choix",
                     "label": "choices"
                 },
                 {
-                    "nextNodeId": "8d58577af65711eea8b772933f3eb0a4",
+                    "nextNodeId": "08ac0320f67d11eea21572933f3eb0a4",
                     "text": "L'utilisation des labels dans le script",
                     "label": "labels"
                 }
             ]
         },
         {
-            "nextNodeId": "8d58566cf65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abfe7af67d11eea21572933f3eb0a4",
             "speaker": "Philippine",
             "label": "choices",
-            "id": "8d5855f4f65711eea8b772933f3eb0a4",
+            "id": "08abfdc6f67d11eea21572933f3eb0a4",
             "lines": [
-                "Comment tu fais des choix dans les dialogues ?"
+                {
+                    "text": "Comment tu fais des choix dans les dialogues ?",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d585496f65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abfc54f67d11eea21572933f3eb0a4",
             "speaker": "Daniel",
             "label": "",
-            "id": "8d58566cf65711eea8b772933f3eb0a4",
+            "id": "08abfe7af67d11eea21572933f3eb0a4",
             "lines": [
-                "J'utilise une syntaxe particulière pour enregistrer des options de choix dans un noeud.",
-                "Quand la lecture du noeud se termine, les différentes options sont proposées pour la suite.",
-                "Et je peux reboucler vers un noeud précédent."
+                {
+                    "text": "J'utilise une syntaxe particulière pour enregistrer des options de choix dans un noeud.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Quand la lecture du noeud se termine, les différentes options sont proposées pour la suite.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Et je peux reboucler vers un noeud précédent.",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d5857def65711eea8b772933f3eb0a4",
+            "nextNodeId": "08ac03caf67d11eea21572933f3eb0a4",
             "speaker": "Philippine",
             "label": "labels",
-            "id": "8d58577af65711eea8b772933f3eb0a4",
+            "id": "08ac0320f67d11eea21572933f3eb0a4",
             "lines": [
-                "Comment tu t'y retrouves dans les embranchements ?"
+                {
+                    "text": "Comment tu t'y retrouves dans les embranchements ?",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "8d5858a6f65711eea8b772933f3eb0a4",
+            "nextNodeId": "08ac0514f67d11eea21572933f3eb0a4",
             "speaker": "Daniel",
             "label": "",
-            "id": "8d5857def65711eea8b772933f3eb0a4",
+            "id": "08ac03caf67d11eea21572933f3eb0a4",
             "lines": [
-                "J'utilise des labels dans le script qui capturent l'identifiant du prochain noeud.",
-                "Ces labels sont ensuite utilisés pour mettre à jour les destinations des différents choix possibles.",
-                "Et ça marche aussi pour les sauts vers une autre partie du script."
+                {
+                    "text": "J'utilise des labels dans le script qui capturent l'identifiant du prochain noeud.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Ces labels sont ensuite utilisés pour mettre à jour les destinations des différents choix possibles.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Et ça marche aussi pour les sauts vers une autre partie du script.",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "",
+            "nextNodeId": "08ac05e6f67d11eea21572933f3eb0a4",
             "speaker": "Daniel",
             "label": "other",
-            "id": "8d5858a6f65711eea8b772933f3eb0a4",
+            "id": "08ac0514f67d11eea21572933f3eb0a4",
             "lines": [
-                "Et je peux rediriger l'exécution vers un point de sortie en commun.",
-                "Ou laisser le script se poursuivre dans le noeud suivant."
+                {
+                    "text": "Et je peux rediriger l'exécution vers un point de sortie en commun.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Ou laisser le script se poursuivre dans le noeud suivant.",
+                    "condition": null,
+                    "event": ""
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "08ac06eaf67d11eea21572933f3eb0a4",
+            "speaker": "Philippine",
+            "label": "",
+            "id": "08ac05e6f67d11eea21572933f3eb0a4",
+            "lines": [
+                {
+                    "text": "Et tu gères les dialogues conditionnels ?",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Je veux dire, quand une personne dit un truc seulement si une condition est vraie ?",
+                    "condition": null,
+                    "event": ""
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "08ac0924f67d11eea21572933f3eb0a4",
+            "speaker": "Daniel",
+            "label": "conditions",
+            "id": "08ac06eaf67d11eea21572933f3eb0a4",
+            "lines": [
+                {
+                    "text": "Laisse moi réfléchir...",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Il faudrait que je gère un état, peut-être avec des tags.",
+                    "condition": {
+                        "tag": "solution",
+                        "condition": "absent"
+                    },
+                    "event": ""
+                },
+                {
+                    "text": "Et que je puisse skipper les lignes que je n'affiche pas.",
+                    "condition": {
+                        "tag": "solution",
+                        "condition": "absent"
+                    },
+                    "event": ""
+                },
+                {
+                    "text": "OK. Je crois que cela fonctionne.",
+                    "condition": {
+                        "tag": "solution",
+                        "condition": "present"
+                    },
+                    "event": ""
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "08ac06eaf67d11eea21572933f3eb0a4",
+            "speaker": "Philippine",
+            "label": "",
+            "id": "08ac0924f67d11eea21572933f3eb0a4",
+            "lines": [
+                {
+                    "text": "OK. Tu me dis quand tu es prêt.",
+                    "condition": {
+                        "tag": "solution",
+                        "condition": "add"
+                    },
+                    "event": ""
+                }
             ],
             "choices": []
         }

@@ -1,4 +1,4 @@
-from scriptplayer.core.domain.script import DialogueOption, Node
+from scriptplayer.core.domain.script import DialogueOption, Node, Condition
 from scriptplayer.infrastructure.mappers.abstract_classes import AbstractMapperRule
 from scriptplayer.infrastructure.mappers.exceptions import CircularNodeLinkError
 
@@ -75,6 +75,24 @@ class NewNodeRule(AbstractMapperRule):
         self.mapper.script.add_node(node)
         self.mapper.lastNode = node
         
+class NewLineWithConditionRule(AbstractMapperRule):
+    conditionDict = {
+        '?': Condition.PRESENT,
+        '?!': Condition.ABSENT,
+        '+': Condition.ADD,
+        '-': Condition.REMOVE
+    }
+
+    def check_condition(self, line: str) -> bool:
+        return NewLineRule.has_indentation(line, 1) and '|' in line
+    
+    def do_apply_rule(self, line: str):
+        text, conditionExpression = line.split('|')
+        prefix, tag = conditionExpression.split()        
+        print(self.conditionDict.get(prefix), tag)
+        self.mapper.lastNode.add_line(line=text.strip() , tag=tag, condition=self.conditionDict.get(prefix))
+
+
 class NewLineRule(AbstractMapperRule):
     def check_condition(self, line: str) -> bool:
         return NewLineRule.has_indentation(line, 1)

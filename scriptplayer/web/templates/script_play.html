@@ -4,20 +4,25 @@
 
 {% block content %}
 <div class="container">
-    <p class="script-line-speaker">{{ scriptLine.speaker }}</p>
-    <p class="script-line-text">{{ scriptLine.line }}</p>
-
-    {% if choices: %}
-        {% for choice in choices: %}
-        <p><a href="{{ url_for('play_node', id=scriptId, nodeId=choice.nextNodeId, line=0)}}">{{ choice.text }}</a></p>
-        {% endfor %}
-    {% else %}
-        {% if scriptLine.next.nodeId %}
-        <p><a href="{{ url_for('play_node', id=scriptId, nodeId=scriptLine.next.nodeId, line=scriptLine.next.lineId)}}">Suivant</a></p>
-        {% else %}
-            <p>FIN</p>
-        {% endif %}
-    {% endif %}
+    <div class="card">
+        <h5 class="card-header">{{ scriptLine.speaker }}</h5>
+        <div class="card-body">
+            <p class="card-text script-line-text">{{ scriptLine.line }}</p>
+        </div>
+        <div class="card-footer">
+            {% if choices: %}
+            {% for choice in choices: %}
+            <a class="btn btn-primary" href="{{ url_for('play_node', id=scriptId, nodeId=choice.nextNodeId, line=0)}}">{{ choice.text }}</a>
+            {% endfor %}
+            {% else %}
+            {% if scriptLine.next.nodeId %}
+            <a class="btn btn-primary" href="{{ url_for('play_node', id=scriptId, nodeId=scriptLine.next.nodeId, line=scriptLine.next.lineId)}}">Suivant</a>
+            {% else %}
+            <p class="card-text">FIN</p>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}

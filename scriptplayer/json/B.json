@@ -1,19 +1,23 @@
 {
     "file_name": "B",
     "title": "Isabelle présente ses projets de réseaux sociaux",
-    "id": "8d58258ef65711eea8b772933f3eb0a4",
+    "id": "08abc07cf67d11eea21572933f3eb0a4",
     "summary": [
         "Dialogue de test",
         "Isabelle & Philippine"
     ],
     "nodes": [
         {
-            "nextNodeId": "8d58302ef65711eea8b772933f3eb0a4",
+            "nextNodeId": "08abd814f67d11eea21572933f3eb0a4",
             "speaker": "Isabelle",
             "label": "",
-            "id": "8d582f3ef65711eea8b772933f3eb0a4",
+            "id": "08abc9f0f67d11eea21572933f3eb0a4",
             "lines": [
-                "J'espère que tu es prête à être époustouflée !"
+                {
+                    "text": "J'espère que tu es prête à être époustouflée !",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         },
@@ -21,10 +25,18 @@
             "nextNodeId": "",
             "speaker": "Philippine",
             "label": "",
-            "id": "8d58302ef65711eea8b772933f3eb0a4",
+            "id": "08abd814f67d11eea21572933f3eb0a4",
             "lines": [
-                "J'essaye de ne pas être trop emballée, mais oui j'ai hâte de voir.",
-                "Qu'as tu en tête ?"
+                {
+                    "text": "J'essaye de ne pas être trop emballée, mais oui j'ai hâte de voir.",
+                    "condition": null,
+                    "event": ""
+                },
+                {
+                    "text": "Qu'as tu en tête ?",
+                    "condition": null,
+                    "event": ""
+                }
             ],
             "choices": []
         }

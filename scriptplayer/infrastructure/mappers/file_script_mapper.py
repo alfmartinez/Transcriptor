@@ -4,7 +4,7 @@ import os
 
 from scriptplayer.infrastructure.mappers.abstract_classes import AbstractLineMapper, AbstractMapperRule
 from scriptplayer.infrastructure.mappers.exceptions import LineDoesntMatchAnyRuleError, MissingLabelError
-from scriptplayer.infrastructure.mappers.rules import CaptureLabelRule, ChoiceRule, EmptyLineRule, GotoCommandRule, NewLineRule, NewNodeRule, SummaryRule, TitleRule
+from scriptplayer.infrastructure.mappers.rules import CaptureLabelRule, ChoiceRule, EmptyLineRule, GotoCommandRule, NewLineRule, NewLineWithConditionRule, NewNodeRule, SummaryRule, TitleRule
 
 rules_list = [
     EmptyLineRule,
@@ -13,6 +13,7 @@ rules_list = [
     GotoCommandRule,
     ChoiceRule,
     NewNodeRule,
+    NewLineWithConditionRule,
     NewLineRule,
     CaptureLabelRule
 ]

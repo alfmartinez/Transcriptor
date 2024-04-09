@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from uuid import UUID, uuid1
+from enum import StrEnum, auto
 
 ScriptId = str
 
@@ -18,16 +19,43 @@ class DialogueOption(NextNodeOverride):
     text: str = ""
     label: str = ""
 
+class Condition(StrEnum):
+    NONE = auto()
+    PRESENT = auto()
+    ABSENT = auto()
+    ADD = auto()
+    REMOVE = auto()
+
+@dataclass
+class LineCondition:
+    tag: str
+    condition: Condition
+
+@dataclass
+class DialogueLine:
+    text: str
+    condition: LineCondition = None
+    event: str = ""
+
 @dataclass
 class Node(NextNodeOverride):
     speaker: str = ""
     label: str = ""
     id: str = field(default_factory=id_factory)
-    lines: list[str] = field(default_factory=list)
+    lines: list[DialogueLine] = field(default_factory=list)
     choices: list[DialogueOption] = field(default_factory=list)
 
-    def add_line(self, line: str):
-        self.lines.append(line)
+    def add_line(self, line: str, tag: str = "", condition: Condition = Condition.NONE):
+        match tag:
+            case w if tag == "":
+                conditionObj = None
+            case w:
+                conditionObj = LineCondition(tag, condition)
+
+
+        lineObj = DialogueLine(line,conditionObj)
+        print(lineObj)
+        self.lines.append(lineObj)
 
     def get_line(self, idx: int):
         last = idx == len(self.lines)-1
