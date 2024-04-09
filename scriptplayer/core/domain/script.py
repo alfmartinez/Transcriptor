@@ -16,10 +16,12 @@ class NextNodeOverride:
 @dataclass
 class DialogueOption(NextNodeOverride):
     text: str = ""
+    label: str = ""
 
 @dataclass
 class Node(NextNodeOverride):
     speaker: str = ""
+    label: str = ""
     id: str = field(default_factory=id_factory)
     lines: list[str] = field(default_factory=list)
     choices: list[DialogueOption] = field(default_factory=list)

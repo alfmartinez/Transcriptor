@@ -28,7 +28,7 @@ class FileScriptMapper:
             for line in file:    
                 mapper.process_line(line.rstrip())
             mapper.post_process_labels()
-        print(mapper)
+        
         return script
     
 @dataclass    

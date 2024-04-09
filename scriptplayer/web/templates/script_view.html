@@ -14,12 +14,30 @@
     </div>
     <div class="script-body">
         {% for node in script.nodes %}
-            <p class="speaker">{{node.speaker}}</p>
-            <p class="node-lines">
-            {% for line in node.lines %}
-                {{line}}<br />            
-            {% endfor %}
-            </p>
+        <div class="card node w-75" id="node-{{node.id}}">
+            <h5 class="card-header speaker">
+                {{node.speaker}}
+                {% if node.label %}
+                <span class="badge bg-secondary">{{node.label}}</span>
+                {% endif %}
+            </h5>
+
+            <div class="card-body">
+
+                <p class="node-lines card-text">
+                    {% for line in node.lines %}
+                        {{line}}<br />            
+                    {% endfor %}
+                </p>
+                {% if node.choices %}
+                <div class="node-choices">
+                    {% for choice in node.choices %}
+                        <a class="btn btn-primary" href="#node-{{choice.nextNodeId}}">{{ choice.text }} : {{choice.label}}</a>
+                    {% endfor %}
+                </div>          
+                {% endif %}
+            </div>  
+        </div>
         {% endfor %}
     </div>
     <div class="script-links">

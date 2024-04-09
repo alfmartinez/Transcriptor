@@ -53,7 +53,7 @@ class ChoiceRule(AbstractMapperRule):
     
     def do_apply_rule(self, line: str):
         text, label = line.lstrip()[2:].split(" -> ")
-        option = DialogueOption(text=text)
+        option = DialogueOption(text=text, label=label)
         self.mapper.push_for_post_process(label, option)
         self.mapper.lastNode.choices.append(option)
 
@@ -66,6 +66,7 @@ class NewNodeRule(AbstractMapperRule):
         node = Node(speaker=speaker)
         if self.mapper.capture_label:
             self.mapper.labels[self.mapper.capture_label] = node.id
+            node.label = self.mapper.capture_label 
             self.mapper.capture_label = ""
         if self.mapper.lastNode:
             self.mapper.lastNode.nextNodeId = node.id

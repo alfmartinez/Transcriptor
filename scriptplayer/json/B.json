@@ -1,16 +1,17 @@
 {
     "file_name": "B",
     "title": "Isabelle présente ses projets de réseaux sociaux",
-    "id": "5de8d4baf64d11eea3c072933f3eb0a4",
+    "id": "8d58258ef65711eea8b772933f3eb0a4",
     "summary": [
         "Dialogue de test",
         "Isabelle & Philippine"
     ],
     "nodes": [
         {
-            "nextNodeId": "5de8d92ef64d11eea3c072933f3eb0a4",
+            "nextNodeId": "8d58302ef65711eea8b772933f3eb0a4",
             "speaker": "Isabelle",
-            "id": "5de8d848f64d11eea3c072933f3eb0a4",
+            "label": "",
+            "id": "8d582f3ef65711eea8b772933f3eb0a4",
             "lines": [
                 "J'espère que tu es prête à être époustouflée !"
             ],
@@ -19,7 +20,8 @@
         {
             "nextNodeId": "",
             "speaker": "Philippine",
-            "id": "5de8d92ef64d11eea3c072933f3eb0a4",
+            "label": "",
+            "id": "8d58302ef65711eea8b772933f3eb0a4",
             "lines": [
                 "J'essaye de ne pas être trop emballée, mais oui j'ai hâte de voir.",
                 "Qu'as tu en tête ?"
