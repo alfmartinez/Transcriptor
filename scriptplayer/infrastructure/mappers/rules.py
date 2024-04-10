@@ -1,6 +1,16 @@
-from scriptplayer.core.domain.script import DialogueOption, Node, Condition
+from scriptplayer.core.domain.script import DialogueEvent, DialogueLine, DialogueOption, Node, Condition, TagCondition
 from scriptplayer.infrastructure.mappers.abstract_classes import AbstractMapperRule
 from scriptplayer.infrastructure.mappers.exceptions import CircularNodeLinkError
+import re
+
+conditionDict = {
+    '?': Condition.PRESENT,
+    '?!': Condition.ABSENT,
+    '+': Condition.ADD,
+    '-': Condition.REMOVE
+}
+def buildCondition(prefix: str, tag: str):
+    return TagCondition(tag, conditionDict.get(prefix))
 
 class EmptyLineRule(AbstractMapperRule):
     def check_condition(self, line: str) -> bool:
@@ -44,9 +54,26 @@ class GotoCommandRule(AbstractMapperRule):
     
     def do_apply_rule(self, line: str):
         _, label = line.lstrip().split()
+        self.mapper.lastNode.nextNodeLabel = label
         self.mapper.push_for_post_process(label, self.mapper.lastNode)
             
         
+class ConditionalChoiceRule(AbstractMapperRule):
+    conditionDict = {
+        '?': Condition.PRESENT,
+        '?!': Condition.ABSENT,
+    }
+
+    def check_condition(self, line: str) -> bool:
+        return ChoiceRule.has_indentation(line, 3) and line.lstrip().startswith("*") and '|' in line
+    
+    def do_apply_rule(self, line: str):
+        text, label, suffix = re.split(' -> | \|', line)
+        prefix, tag = suffix.split()
+        option = DialogueOption(text=text.strip()[2:], label=label.strip(), condition=buildCondition(prefix, tag))
+        self.mapper.push_for_post_process(label.strip(), option)
+        self.mapper.lastNode.choices.append(option)
+
 class ChoiceRule(AbstractMapperRule):
     def check_condition(self, line: str) -> bool:
         return ChoiceRule.has_indentation(line, 3) and line.lstrip().startswith("*")
@@ -76,21 +103,16 @@ class NewNodeRule(AbstractMapperRule):
         self.mapper.lastNode = node
         
 class NewLineWithConditionRule(AbstractMapperRule):
-    conditionDict = {
-        '?': Condition.PRESENT,
-        '?!': Condition.ABSENT,
-        '+': Condition.ADD,
-        '-': Condition.REMOVE
-    }
-
+    
     def check_condition(self, line: str) -> bool:
         return NewLineRule.has_indentation(line, 1) and '|' in line
     
     def do_apply_rule(self, line: str):
         text, conditionExpression = line.split('|')
-        prefix, tag = conditionExpression.split()        
-        print(self.conditionDict.get(prefix), tag)
-        self.mapper.lastNode.add_line(line=text.strip() , tag=tag, condition=self.conditionDict.get(prefix))
+        prefix, tag = conditionExpression.split()      
+        dialogueLine = DialogueLine(text=text.strip(), condition=buildCondition(prefix, tag)) 
+        self.mapper.lastLine = dialogueLine
+        self.mapper.lastNode.add_line(dialogueLine)
 
 
 class NewLineRule(AbstractMapperRule):
@@ -98,7 +120,9 @@ class NewLineRule(AbstractMapperRule):
         return NewLineRule.has_indentation(line, 1)
     
     def do_apply_rule(self, line: str):
-        self.mapper.lastNode.add_line(line.strip())
+        dialogueLine = DialogueLine(text=line.strip()) 
+        self.mapper.lastLine = dialogueLine
+        self.mapper.lastNode.add_line(dialogueLine)
 
 class CaptureLabelRule(AbstractMapperRule):
     def check_condition(self, line: str) -> bool:
@@ -106,3 +130,12 @@ class CaptureLabelRule(AbstractMapperRule):
     
     def do_apply_rule(self, line: str):
         self.mapper.capture_label, _ = line.split(":")
+
+class CallDelegateRule(AbstractMapperRule):
+    def check_condition(self, line: str) -> bool:
+        return ChoiceRule.has_indentation(line, 3) and line.lstrip().startswith("!")
+    
+    def do_apply_rule(self, line: str):
+        _, event_name, *args = line.strip().split()
+        event = DialogueEvent(name=event_name, args=args)
+        self.mapper.lastLine.event = event

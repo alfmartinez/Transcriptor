@@ -58,11 +58,52 @@ other:
 
 conditions:    
         Daniel 
-    Laisse moi réfléchir...
+    Laisse moi réfléchir...                                     | ?! solution
     Il faudrait que je gère un état, peut-être avec des tags.   | ?! solution
     Et que je puisse skipper les lignes que je n'affiche pas.   | ?! solution
     OK. Je crois que cela fonctionne.                           | ?  solution
 
         Philippine
     OK. Tu me dis quand tu es prêt.                             | + solution
-            -> conditions
+            * Alors, tu as trouvé ? -> conditions
+            * Choix conditionnels -> conditionalchoices
+
+conditionalchoices:
+        Philippine
+    Tu as pensé a ajouter des choix conditionnels ?
+
+        Daniel
+    Tu veux dire des choix qui ne seraient disponibles que si un tag est présent ?
+    
+        Philippine
+    Oui comme les choix suivants:
+            * Reparle moi des labels -> labels          | ? precision
+            * Des précisions -> add_tag_for_choice      | ?! precision
+            * Je vois pas quoi rajouter -> events       | ? precision
+
+add_tag_for_choice:
+        Daniel
+    Je pense savoir comment faire.
+    J'ajoute un tag pour voir.                          | + precision
+    Et on retourne a ta question.
+            -> conditionalchoices
+
+events:
+        Daniel
+    Attends. Je pourrais rajouter le fait de déclencher des événements externes...
+
+        Philippine
+    En quoi ça consiste ?
+
+        Daniel
+    Par exemple, si je veux qu'une action soit déclenchée en dehors de la lecture du script, par la lecture d'une ligne de dialogue.
+    Comme il ne s'agit pas d'une condition, je pourrais utiliser la même syntaxe que pour les sauts et les choix.
+    Par exemple en utilisant un point d'exclamation.
+            ! boom tchaca 
+
+fin:
+        Daniel
+    Bon. Je crois que j'ai terminé.
+
+        Philippine
+    J'ai hâte de voir le résultat final en action.

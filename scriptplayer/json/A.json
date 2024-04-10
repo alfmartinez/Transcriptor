@@ -1,287 +1,516 @@
 {
-    "file_name": "A",
+    "fileName": "A",
     "title": "Daniel code un transcripteur",
-    "id": "08abf0b0f67d11eea21572933f3eb0a4",
+    "id": "0b7a9b64f70b11eeb14772933f3eb0a4",
     "summary": [
         "Dialogue de test"
     ],
     "nodes": [
         {
-            "nextNodeId": "08abf7c2f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7aa9b0f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "",
-            "id": "08abf6bef67d11eea21572933f3eb0a4",
+            "id": "0b7aa8caf70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Alors, tu avances dans ton logiciel d'écriture de dialogue ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Alors, tu avances dans ton logiciel d'\u00e9criture de dialogue ?",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08abf952f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7aaabef70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Daniel",
             "label": "",
-            "id": "08abf7c2f67d11eea21572933f3eb0a4",
+            "id": "0b7aa9b0f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
+                    "condition": null,
                     "text": "Si on veut.",
-                    "condition": null,
-                    "event": ""
+                    "event": null
                 },
                 {
-                    "text": "Pour l'instant, j'ai créé la coquille pour l'implémentation de la lecture ligne par ligne.",
                     "condition": null,
-                    "event": ""
+                    "text": "Pour l'instant, j'ai cr\u00e9\u00e9 la coquille pour l'impl\u00e9mentation de la lecture ligne par ligne.",
+                    "event": null
                 },
                 {
-                    "text": "Chaque ligne de script est enregistrée comme l'affichage d'une ligne de script dans le jeu.",
                     "condition": null,
-                    "event": ""
+                    "text": "Chaque ligne de script est enregistr\u00e9e comme l'affichage d'une ligne de script dans le jeu.",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08abfaf6f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7aaba4f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "",
-            "id": "08abf952f67d11eea21572933f3eb0a4",
+            "id": "0b7aaabef70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entité ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Ok. Donc tu regroupes les lignes de dialogue qui se suivent comme une seule entit\u00e9 ?",
+                    "event": null
                 },
                 {
-                    "text": "Ça me parait être une bonne idée.",
                     "condition": null,
-                    "event": ""
+                    "text": "\u00c7a me parait \u00eatre une bonne id\u00e9e.",
+                    "event": null
                 },
                 {
-                    "text": "Et tu gères les changements de personnage dans le dialogue ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Et tu g\u00e8res les changements de personnage dans le dialogue ?",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08abfc54f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7aaca8f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Daniel",
             "label": "",
-            "id": "08abfaf6f67d11eea21572933f3eb0a4",
+            "id": "0b7aaba4f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Oui, c'est l'idée, mais il me reste encore à l'implémenter.",
                     "condition": null,
-                    "event": ""
+                    "text": "Oui, c'est l'id\u00e9e, mais il me reste encore \u00e0 l'impl\u00e9menter.",
+                    "event": null
                 },
                 {
-                    "text": "Les changements de personnage se feront en passant d'un noeud à l'autre.",
                     "condition": null,
-                    "event": ""
+                    "text": "Les changements de personnage se feront en passant d'un noeud \u00e0 l'autre.",
+                    "event": null
                 },
                 {
-                    "text": "Par exemple, on est au quatrième noeud.",
                     "condition": null,
-                    "event": ""
+                    "text": "Par exemple, on est au quatri\u00e8me noeud.",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08abfdc6f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab144f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "questions",
-            "id": "08abfc54f67d11eea21572933f3eb0a4",
+            "id": "0b7aaca8f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Est ce que tu peux m'en dire plus sur les fonctionnalités du player ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Est ce que tu peux m'en dire plus sur les fonctionnalit\u00e9s du player ?",
+                    "event": null
                 }
             ],
             "choices": [
                 {
-                    "nextNodeId": "08abfdc6f67d11eea21572933f3eb0a4",
-                    "text": "Les possibilités de choix",
+                    "condition": null,
+                    "nextNodeId": "0b7ab144f70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
+                    "text": "Les possibilit\u00e9s de choix",
                     "label": "choices"
                 },
                 {
-                    "nextNodeId": "08ac0320f67d11eea21572933f3eb0a4",
+                    "condition": null,
+                    "nextNodeId": "0b7ab2def70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
                     "text": "L'utilisation des labels dans le script",
                     "label": "labels"
                 }
             ]
         },
         {
-            "nextNodeId": "08abfe7af67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab1c6f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "choices",
-            "id": "08abfdc6f67d11eea21572933f3eb0a4",
+            "id": "0b7ab144f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Comment tu fais des choix dans les dialogues ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Comment tu fais des choix dans les dialogues ?",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08abfc54f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7aaca8f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "questions",
             "speaker": "Daniel",
             "label": "",
-            "id": "08abfe7af67d11eea21572933f3eb0a4",
+            "id": "0b7ab1c6f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "J'utilise une syntaxe particulière pour enregistrer des options de choix dans un noeud.",
                     "condition": null,
-                    "event": ""
+                    "text": "J'utilise une syntaxe particuli\u00e8re pour enregistrer des options de choix dans un noeud.",
+                    "event": null
                 },
                 {
-                    "text": "Quand la lecture du noeud se termine, les différentes options sont proposées pour la suite.",
                     "condition": null,
-                    "event": ""
+                    "text": "Quand la lecture du noeud se termine, les diff\u00e9rentes options sont propos\u00e9es pour la suite.",
+                    "event": null
                 },
                 {
-                    "text": "Et je peux reboucler vers un noeud précédent.",
                     "condition": null,
-                    "event": ""
+                    "text": "Et je peux reboucler vers un noeud pr\u00e9c\u00e9dent.",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08ac03caf67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab34cf70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "labels",
-            "id": "08ac0320f67d11eea21572933f3eb0a4",
+            "id": "0b7ab2def70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Comment tu t'y retrouves dans les embranchements ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Comment tu t'y retrouves dans les embranchements ?",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08ac0514f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab43cf70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Daniel",
             "label": "",
-            "id": "08ac03caf67d11eea21572933f3eb0a4",
+            "id": "0b7ab34cf70b11eeb14772933f3eb0a4",
             "lines": [
                 {
+                    "condition": null,
                     "text": "J'utilise des labels dans le script qui capturent l'identifiant du prochain noeud.",
-                    "condition": null,
-                    "event": ""
+                    "event": null
                 },
                 {
-                    "text": "Ces labels sont ensuite utilisés pour mettre à jour les destinations des différents choix possibles.",
                     "condition": null,
-                    "event": ""
+                    "text": "Ces labels sont ensuite utilis\u00e9s pour mettre \u00e0 jour les destinations des diff\u00e9rents choix possibles.",
+                    "event": null
                 },
                 {
-                    "text": "Et ça marche aussi pour les sauts vers une autre partie du script.",
                     "condition": null,
-                    "event": ""
+                    "text": "Et \u00e7a marche aussi pour les sauts vers une autre partie du script.",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08ac05e6f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab4c8f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Daniel",
             "label": "other",
-            "id": "08ac0514f67d11eea21572933f3eb0a4",
+            "id": "0b7ab43cf70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Et je peux rediriger l'exécution vers un point de sortie en commun.",
                     "condition": null,
-                    "event": ""
+                    "text": "Et je peux rediriger l'ex\u00e9cution vers un point de sortie en commun.",
+                    "event": null
                 },
                 {
-                    "text": "Ou laisser le script se poursuivre dans le noeud suivant.",
                     "condition": null,
-                    "event": ""
+                    "text": "Ou laisser le script se poursuivre dans le noeud suivant.",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08ac06eaf67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab59af70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "",
-            "id": "08ac05e6f67d11eea21572933f3eb0a4",
+            "id": "0b7ab4c8f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Et tu gères les dialogues conditionnels ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Et tu g\u00e8res les dialogues conditionnels ?",
+                    "event": null
                 },
                 {
-                    "text": "Je veux dire, quand une personne dit un truc seulement si une condition est vraie ?",
                     "condition": null,
-                    "event": ""
+                    "text": "Je veux dire, quand une personne dit un truc seulement si une condition est vraie ?",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08ac0924f67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab6d0f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Daniel",
             "label": "conditions",
-            "id": "08ac06eaf67d11eea21572933f3eb0a4",
+            "id": "0b7ab59af70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "Laisse moi réfléchir...",
-                    "condition": null,
-                    "event": ""
-                },
-                {
-                    "text": "Il faudrait que je gère un état, peut-être avec des tags.",
                     "condition": {
                         "tag": "solution",
                         "condition": "absent"
                     },
-                    "event": ""
+                    "text": "Laisse moi r\u00e9fl\u00e9chir...",
+                    "event": null
                 },
                 {
+                    "condition": {
+                        "tag": "solution",
+                        "condition": "absent"
+                    },
+                    "text": "Il faudrait que je g\u00e8re un \u00e9tat, peut-\u00eatre avec des tags.",
+                    "event": null
+                },
+                {
+                    "condition": {
+                        "tag": "solution",
+                        "condition": "absent"
+                    },
                     "text": "Et que je puisse skipper les lignes que je n'affiche pas.",
-                    "condition": {
-                        "tag": "solution",
-                        "condition": "absent"
-                    },
-                    "event": ""
+                    "event": null
                 },
                 {
-                    "text": "OK. Je crois que cela fonctionne.",
                     "condition": {
                         "tag": "solution",
                         "condition": "present"
                     },
-                    "event": ""
+                    "text": "OK. Je crois que cela fonctionne.",
+                    "event": null
                 }
             ],
             "choices": []
         },
         {
-            "nextNodeId": "08ac06eaf67d11eea21572933f3eb0a4",
+            "nextNodeId": "0b7ab7d4f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
             "speaker": "Philippine",
             "label": "",
-            "id": "08ac0924f67d11eea21572933f3eb0a4",
+            "id": "0b7ab6d0f70b11eeb14772933f3eb0a4",
             "lines": [
                 {
-                    "text": "OK. Tu me dis quand tu es prêt.",
                     "condition": {
                         "tag": "solution",
                         "condition": "add"
                     },
-                    "event": ""
+                    "text": "OK. Tu me dis quand tu es pr\u00eat.",
+                    "event": null
+                }
+            ],
+            "choices": [
+                {
+                    "condition": null,
+                    "nextNodeId": "0b7ab59af70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
+                    "text": "Alors, tu as trouv\u00e9 ?",
+                    "label": "conditions"
+                },
+                {
+                    "condition": null,
+                    "nextNodeId": "0b7ab7d4f70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
+                    "text": "Choix conditionnels",
+                    "label": "conditionalchoices"
+                }
+            ]
+        },
+        {
+            "nextNodeId": "0b7ab842f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Philippine",
+            "label": "conditionalchoices",
+            "id": "0b7ab7d4f70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Tu as pens\u00e9 a ajouter des choix conditionnels ?",
+                    "event": null
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "0b7ab8a6f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Daniel",
+            "label": "",
+            "id": "0b7ab842f70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Tu veux dire des choix qui ne seraient disponibles que si un tag est pr\u00e9sent ?",
+                    "event": null
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "0b7abccaf70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Philippine",
+            "label": "",
+            "id": "0b7ab8a6f70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Oui comme les choix suivants:",
+                    "event": null
+                }
+            ],
+            "choices": [
+                {
+                    "condition": {
+                        "tag": "precision",
+                        "condition": "present"
+                    },
+                    "nextNodeId": "0b7ab2def70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
+                    "text": "Reparle moi des labels",
+                    "label": "labels"
+                },
+                {
+                    "condition": {
+                        "tag": "precision",
+                        "condition": "absent"
+                    },
+                    "nextNodeId": "0b7abccaf70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
+                    "text": "Des pr\u00e9cisions",
+                    "label": "add_tag_for_choice"
+                },
+                {
+                    "condition": {
+                        "tag": "precision",
+                        "condition": "present"
+                    },
+                    "nextNodeId": "0b7abe1ef70b11eeb14772933f3eb0a4",
+                    "nextNodeLabel": "",
+                    "text": "Je vois pas quoi rajouter",
+                    "label": "events"
+                }
+            ]
+        },
+        {
+            "nextNodeId": "0b7ab7d4f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "conditionalchoices",
+            "speaker": "Daniel",
+            "label": "add_tag_for_choice",
+            "id": "0b7abccaf70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Je pense savoir comment faire.",
+                    "event": null
+                },
+                {
+                    "condition": {
+                        "tag": "precision",
+                        "condition": "add"
+                    },
+                    "text": "J'ajoute un tag pour voir.",
+                    "event": null
+                },
+                {
+                    "condition": null,
+                    "text": "Et on retourne a ta question.",
+                    "event": null
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "0b7abe96f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Daniel",
+            "label": "events",
+            "id": "0b7abe1ef70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Attends. Je pourrais rajouter le fait de d\u00e9clencher des \u00e9v\u00e9nements externes...",
+                    "event": null
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "0b7abefaf70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Philippine",
+            "label": "",
+            "id": "0b7abe96f70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "En quoi \u00e7a consiste ?",
+                    "event": null
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "0b7ac12af70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Daniel",
+            "label": "",
+            "id": "0b7abefaf70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Par exemple, si je veux qu'une action soit d\u00e9clench\u00e9e en dehors de la lecture du script, par la lecture d'une ligne de dialogue.",
+                    "event": null
+                },
+                {
+                    "condition": null,
+                    "text": "Comme il ne s'agit pas d'une condition, je pourrais utiliser la m\u00eame syntaxe que pour les sauts et les choix.",
+                    "event": null
+                },
+                {
+                    "condition": null,
+                    "text": "Par exemple en utilisant un point d'exclamation.",
+                    "event": {
+                        "name": "boom",
+                        "args": [
+                            "tchaca"
+                        ]
+                    }
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "0b7ac198f70b11eeb14772933f3eb0a4",
+            "nextNodeLabel": "",
+            "speaker": "Daniel",
+            "label": "fin",
+            "id": "0b7ac12af70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "Bon. Je crois que j'ai termin\u00e9.",
+                    "event": null
+                }
+            ],
+            "choices": []
+        },
+        {
+            "nextNodeId": "",
+            "nextNodeLabel": "",
+            "speaker": "Philippine",
+            "label": "",
+            "id": "0b7ac198f70b11eeb14772933f3eb0a4",
+            "lines": [
+                {
+                    "condition": null,
+                    "text": "J'ai h\u00e2te de voir le r\u00e9sultat final en action.",
+                    "event": null
                 }
             ],
             "choices": []

@@ -1,21 +1,23 @@
 from dataclasses import dataclass, field
-from scriptplayer.core.domain.script import Script, Node, DialogueOption
+from scriptplayer.core.domain.script import DialogueLine, Script, Node, DialogueOption
 import os
 
 from scriptplayer.infrastructure.mappers.abstract_classes import AbstractLineMapper, AbstractMapperRule
 from scriptplayer.infrastructure.mappers.exceptions import LineDoesntMatchAnyRuleError, MissingLabelError
-from scriptplayer.infrastructure.mappers.rules import CaptureLabelRule, ChoiceRule, EmptyLineRule, GotoCommandRule, NewLineRule, NewLineWithConditionRule, NewNodeRule, SummaryRule, TitleRule
+from scriptplayer.infrastructure.mappers.rules import CallDelegateRule, CaptureLabelRule, ChoiceRule, ConditionalChoiceRule, EmptyLineRule, GotoCommandRule, NewLineRule, NewLineWithConditionRule, NewNodeRule, SummaryRule, TitleRule
 
 rules_list = [
     EmptyLineRule,
     TitleRule,
     SummaryRule,
     GotoCommandRule,
+    ConditionalChoiceRule,
     ChoiceRule,
     NewNodeRule,
     NewLineWithConditionRule,
     NewLineRule,
-    CaptureLabelRule
+    CaptureLabelRule,
+    CallDelegateRule
 ]
 
 class FileScriptMapper:
@@ -36,6 +38,7 @@ class FileScriptMapper:
 class LineMapper(AbstractLineMapper):
     script: Script
     lastNode: Node = None
+    lastLine: DialogueLine = None
     labels: dict = field(default_factory=dict)
     to_post_process: dict = field(default_factory=dict)
     capture_label: str = ""

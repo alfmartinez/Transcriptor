@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
+from typing import Optional
 from uuid import UUID, uuid1
 from enum import StrEnum, auto
+from dataclass_wizard import JSONFileWizard
 
 ScriptId = str
 
@@ -10,14 +12,10 @@ def id_factory():
 @dataclass
 class NextNodeOverride:
     nextNodeId: str = ""
+    nextNodeLabel: str = ""
     def setNextNodeId(self, id: str):
         self.nextNodeId = id
 
-
-@dataclass
-class DialogueOption(NextNodeOverride):
-    text: str = ""
-    label: str = ""
 
 class Condition(StrEnum):
     NONE = auto()
@@ -27,15 +25,32 @@ class Condition(StrEnum):
     REMOVE = auto()
 
 @dataclass
-class LineCondition:
+class TagCondition:
     tag: str
     condition: Condition
 
+    def __str__(self) -> str:
+        return self.condition + " " + self.tag
+
 @dataclass
-class DialogueLine:
-    text: str
-    condition: LineCondition = None
-    event: str = ""
+class ConditionalItem:
+    condition: Optional[TagCondition] = None
+
+@dataclass
+class DialogueOption(NextNodeOverride, ConditionalItem):
+    text: str = ""
+    label: str = ""
+
+@dataclass
+class DialogueEvent:
+    name: str
+    args: list = field(default_factory=list)
+
+
+@dataclass
+class DialogueLine(ConditionalItem):
+    text: str = ""
+    event: Optional[DialogueEvent] = None
 
 @dataclass
 class Node(NextNodeOverride):
@@ -45,17 +60,8 @@ class Node(NextNodeOverride):
     lines: list[DialogueLine] = field(default_factory=list)
     choices: list[DialogueOption] = field(default_factory=list)
 
-    def add_line(self, line: str, tag: str = "", condition: Condition = Condition.NONE):
-        match tag:
-            case w if tag == "":
-                conditionObj = None
-            case w:
-                conditionObj = LineCondition(tag, condition)
-
-
-        lineObj = DialogueLine(line,conditionObj)
-        print(lineObj)
-        self.lines.append(lineObj)
+    def add_line(self, line: DialogueLine):        
+        self.lines.append(line)
 
     def get_line(self, idx: int):
         last = idx == len(self.lines)-1
@@ -65,7 +71,7 @@ class Node(NextNodeOverride):
         return self.choices
 
 @dataclass
-class Script:
+class Script(JSONFileWizard):
     file_name: str = ""
     title: str = ""
     id: str = field(default_factory=id_factory)

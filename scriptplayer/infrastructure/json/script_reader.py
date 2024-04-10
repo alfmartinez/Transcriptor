@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from collections import namedtuple
 from scriptplayer.core.domain.script import Script, ScriptId, Node
 from dataclasses import make_dataclass
 import json
@@ -16,6 +17,9 @@ class ScriptReader(ABC):
     def read_all(self) -> dict[ScriptId, Script]:
         pass
 
+def ScriptDecoder(scriptDict):
+    return namedtuple('Script', scriptDict.keys())(*scriptDict.values())
+
 
 class JsonScriptReader(ScriptReader):
     path: str
@@ -32,28 +36,17 @@ class JsonScriptReader(ScriptReader):
         scripts = dict()
         it = os.scandir(self.path)
         for entry in it:
-            if entry.is_file() and entry.name.endswith(".json"):
-                with open(entry.path, "r") as f:
-                    data = json.load(f)
-                    uuid = data["id"]
-                    self.paths[uuid]=entry.path
-                    script = Script(**data)
-                    scripts[data["id"]]=script
-                    script.nodes = list()
-                    for node in data["nodes"]:
-                        nodeObj = Node(**node)
-                        script.add_node(nodeObj)
+            if entry.is_file() and entry.name.endswith(".json"):            
+                script = Script.from_json_file(entry.path)
+                scripts[script.id] = script
+                   
 
         return scripts
 
     def read(self, id: ScriptId) -> Script:
         if id in self.paths:
-            with open(self.paths[id], "r") as f:
-                data = json.load(f)
-                uuid = data["id"]
-                data["id"]=uuid
-                script = Script(**data)
-                return script
+            script = Script.from_json_file(self.paths[id])
+            return script
         
         return None
 

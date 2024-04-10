@@ -16,6 +16,9 @@
     </head>
     <body>
         <!-- Your page content -->
+        {% from 'bootstrap4/utils.html' import render_messages, render_icon %}
+
+        {{ render_messages(container=True, dismissible=True, dismiss_animate=True) }}
         {% block content %}{% endblock %}
 
         {% block links %}
