@@ -57,7 +57,6 @@ class LineMapper(AbstractLineMapper):
         
         for rule in self.rules:
             if rule.apply_rule(line):
-                #print(f'Matched "{line.strip()}" with {rule})')
                 return
         
         raise LineDoesntMatchAnyRuleError(line)

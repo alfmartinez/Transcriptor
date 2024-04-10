@@ -4,7 +4,7 @@ from scriptplayer.core.domain.script import Script
 from scriptplayer.core.domain.state import ScriptState
 from scriptplayer.infrastructure.repository.json_script_repository import JsonScriptRepository
 from scriptplayer.core.repository.script_repository import ScriptRepository
-from scriptplayer.core.services.script_player import ScriptPlayer
+from scriptplayer.core.services.script_player import MulticastScriptEventHandler, ScriptPlayer
 
 import os
 
@@ -23,12 +23,16 @@ class Container(containers.DeclarativeContainer):
     script_state = providers.Singleton(
         ScriptState
     )
-    event_handler = providers.Factory(
-        FlashEventHandler
+    event_handler = providers.Singleton(
+        MulticastScriptEventHandler
     )
-    script_player = providers.Factory(
+    script_player = providers.Singleton(
         ScriptPlayer,
         state = script_state,
         event_delegate = event_handler
     )
+    flash_handler = providers.Singleton(
+        FlashEventHandler
+    )
+    script_player.delegate
     

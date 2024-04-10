@@ -4,6 +4,7 @@ from dependency_injector.wiring import inject, Provide
 from scriptplayer.core.domain.state import ScriptState
 from scriptplayer.core.repository.script_repository import ScriptRepository
 from scriptplayer.core.services.script_player import ScriptPlayer
+from scriptplayer.web.flash_event_handler import FlashEventHandler
 from .container import Container
 
 container = Container()
@@ -52,8 +53,10 @@ def play_script(id: str, scriptRepository: ScriptRepository = Provide[Container.
 def play_node(
         id: str, nodeId: str, line:int, 
         scriptRepository: ScriptRepository = Provide[Container.script_repository], 
-        scriptPlayer: ScriptPlayer = Provide[Container.script_player]
+        scriptPlayer: ScriptPlayer = Provide[Container.script_player],
+        flashHandler: FlashEventHandler = Provide[Container.flash_handler]
     ):
+    scriptPlayer.event_delegate.register(flashHandler.handle)
     script = scriptRepository.get_script(id)    
     choices, scriptLine = scriptPlayer.getScriptLine(script, nodeId, int(line))
     return render_template(

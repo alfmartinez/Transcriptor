@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Callable
 from scriptplayer.core.domain.script import DialogueEvent, DialogueLine, Script
 from dataclasses import dataclass
 
@@ -21,6 +22,20 @@ class ScriptEventHandler(ABC):
     @abstractmethod
     def handle(self, event:DialogueEvent):
         pass
+
+EventCallback = Callable[[DialogueEvent], None]
+
+
+class MulticastScriptEventHandler(ScriptEventHandler):
+    callbacks: list[EventCallback] = list()
+
+    def register(self, callback: EventCallback):
+        if not callback in self.callbacks:
+            self.callbacks.append(callback)
+
+    def handle(self, event: DialogueEvent):
+        for callback in self.callbacks:
+            callback(event)
 
 class ScriptPlayer:
 
@@ -47,13 +62,10 @@ class ScriptPlayer:
         while True:
             try:
                 last,line = node.get_line(lineId)
-                print(line)
                 if not line.condition or self.state.check_condition(line):
                     break
-                print("Skip line")
                 lineId+=1
             except IndexError:
-                print("Node has no more lines")
                 nodeId = node.nextNodeId
                 lineId = 0
 

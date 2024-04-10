@@ -20,23 +20,17 @@ class ScriptState:
         condition = conditionObject.condition
         if condition == None:
             return True
-        print(condition)
         tag = condition.tag
-        print(self.tags)
         match condition.condition:
             case Condition.ABSENT:
-                print(f'Check tag "{tag}" is absent')
                 return not self.has_tag(tag)
             case Condition.PRESENT:
-                print(f'Check tag "{tag}" is present')
                 return self.has_tag(tag)
             case Condition.ADD:
-                print(f'Add tag "{tag}"')
                 if tag not in self.tags:
                     self.tags.append(tag)                 
                 return True
             case Condition.REMOVE:
-                print(f'Remove tag "{tag}"')
                 self.tags.remove(tag)
                 return True
             
