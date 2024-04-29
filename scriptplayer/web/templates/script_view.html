@@ -32,7 +32,10 @@
                         <span>{{line.text}}</span>
                         {% if line.condition %}
                             <span class="badge badge-pill bg-info">{{ render_icon('question-circle-fill') }}{{line.condition}}</span>
-                        {% endif %}                        
+                        {% endif %}        
+                        {% if line.event %}
+                            <span class="badge badge-pill bg-danger">Event : {{ line.event.name }} ({{ line.event.args }})</span>
+                        {% endif %}        
                         <br />
                     {% endfor %}
                 </p>

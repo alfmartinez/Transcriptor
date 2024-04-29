@@ -33,7 +33,6 @@ def list_scripts(scriptRepository: ScriptRepository = Provide[Container.script_r
 @app.route("/scripts/<id>")
 @inject
 def view_script(id: str, scriptRepository: ScriptRepository = Provide[Container.script_repository]):
-    flash("Just a flash","info")
     script = scriptRepository.get_script(id)
     return render_template(
         "script_view.html",
